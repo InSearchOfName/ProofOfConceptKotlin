@@ -14,14 +14,20 @@ import org.springframework.stereotype.Service
 class BookService(private val repo: BookRepository) {
 
 
-    fun listAll(): List<BookDto> = repo.findAll().map { it.toDto() }
+    fun listAll(): List<BookDto> {
+        return repo.findAll().map { it.toDto() }
+    }
 
 
-    fun getById(id: Long): BookDto = repo.findById(id).map { it.toDto() }
-        .orElseThrow { NotFoundException("Book with id=$id not found") }
+    fun getById(id: Long): BookDto {
+        return repo.findById(id).map { it.toDto() }
+            .orElseThrow { NotFoundException("Book with id=$id not found") }
+    }
 
 
-    fun create(dto: BookDto): BookDto = repo.save(dto.toEntity()).toDto()
+    fun create(dto: BookDto): BookDto {
+        return repo.save(dto.toEntity()).toDto()
+    }
 
 
     fun update(id: Long, dto: BookDto): BookDto {
@@ -42,5 +48,7 @@ class BookService(private val repo: BookRepository) {
     }
 
 
-    fun searchByTitle(q: String) = repo.findByTitleContainingIgnoreCase(q).map { it.toDto() }
+    fun searchByTitle(q: String): List<BookDto> {
+        return repo.findByTitleContainingIgnoreCase(q).map { it.toDto() }
+    }
 }

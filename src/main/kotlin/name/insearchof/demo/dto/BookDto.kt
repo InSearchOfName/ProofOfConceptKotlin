@@ -11,19 +11,27 @@ data class BookDto(
     val isbn: String? = null
 )
 
-fun BookDto.toEntity() = Book(
-    id = this.id ?: 0,
-    title = this.title,
-    author = this.author,
-    publishedYear = this.publishedYear,
-    isbn = this.isbn
-)
+/**
+ * Tip:
+ * These are mappers to map between the domain class and the dto
+ */
+fun BookDto.toEntity(): Book {
+    return Book(
+        id = this.id ?: 0,
+        title = this.title,
+        author = this.author,
+        publishedYear = this.publishedYear,
+        isbn = this.isbn
+    )
+}
 
 
-fun Book.toDto() = BookDto(
-    id = this.id,
-    title = this.title,
-    author = this.author,
-    publishedYear = this.publishedYear,
-    isbn = this.isbn
-)
+fun Book.toDto(): BookDto {
+    return BookDto(
+        id = this.id,
+        title = this.title,
+        author = this.author,
+        publishedYear = this.publishedYear,
+        isbn = this.isbn
+    )
+}
