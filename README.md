@@ -61,5 +61,11 @@ This is a simple Kotlin Spring Boot REST API for managing books. The application
 ```
 
 ---
+## Dependencies
 
-Feel free to explore and extend the application as needed!
+This project uses Spring Boot (Apache 2.0) as a framework. 
+All Spring Boot code is used under its own license.
+
+The code written in this repository is copyrighted by 
+Tommy Quatretemps (InSearchOfName) and is licensed for 
+personal reference and educational purposes only.
